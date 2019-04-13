@@ -47,6 +47,7 @@ export class HomeComponent implements OnInit {
     {value:'10',viewValue:'10 Mi'},
     {value:'15',viewValue:'15 Mi'},
     {value:'25',viewValue:'25 Mi'}
+
     
   ];
 
