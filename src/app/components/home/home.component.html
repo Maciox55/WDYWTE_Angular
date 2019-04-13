@@ -1,0 +1,34 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="pacman">
+ <p style="font-size: 20px; color: white; ">Loading...</p>
+</ngx-spinner>
+<div fxLayout='row' fxLayoutAlign="center center" class="zero">
+  <div fxFlex="50" fxFlex.md="75" fxFlex.sm="100" fxFlexFill fxFlexAlign="center" id="test">
+    <div fxLayoutAlign="center" id="title">
+      <h1 id="titleText">Not Sure What To Eat Today?</h1>
+    </div>
+    <form fxLayout='row wrap' fxLayoutAlign="start"  (ngSubmit)="onSubmit()" fxLayoutGap="20px" id="inputFields" #f="ngForm">
+      <mat-form-field fxFlex="80" id="zipCode" >
+        <input matInput placeholder="Zip Code or Address" name="zip" [(ngModel)]="model.zip" >
+      </mat-form-field>
+      <mat-select fxFlex="15" placeholder="Range in Miles" name="range" [(ngModel)]="model.range">
+        <mat-option *ngFor="let range of ranges" [value]="range.value" >
+          {{range.viewValue}}
+        </mat-option>
+      </mat-select>
+      <mat-select fxFlex="25" placeholder="Place Type" name="type" [(ngModel)]="model.type">
+        <mat-option *ngFor="let type of types" [value]="type.value" >
+          {{type.viewValue}}
+        </mat-option>
+      </mat-select>
+      <mat-slider fxFlex="10" thumbLabel [displayWith]="formatLabel" [(ngModel)]="value" tickInterval="1" min="0" max="4" name="pricePoint" [(ngModel)]="model.pricePoint"></mat-slider>
+      <div fxLayout='row wrap' fxFlex="100" fxLayoutAlign="end" >
+        <button mat-button type="button" fxFlex="15" (click)="submitt(f)">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>

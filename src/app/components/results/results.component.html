@@ -1,0 +1,16 @@
+<div fxLayout="row"  fxLayoutAlignment="start" id="results">
+  <div fxFlex="0 0 350px" fxFill id="left">
+    <h1 *ngIf="queryDetails.zip != null">5 choices near {{queryDetails.zip}}</h1>
+    <div fxLayout="column" fxFill fxLayoutAlignment="start start" *ngFor="let res of results">
+      <app-result-item fxFlex="20" id="item"  [result]="this.res">
+      </app-result-item>
+    </div>
+
+  </div>
+  <div fxFlex="0.1" fxFill id="divider"></div>
+  <div fxFlex="100" fxFill id="right">
+    <agm-map  [latitude]="location.lat" [longitude]="location.lon" [zoom]=15 [styles]="styles"  style="height:100%;">
+      <agm-marker *ngFor="let result of results" [latitude]="result.geometry.location.lat" [longitude]="result.geometry.location.lng" [iconUrl]="icon" [label]="result.id.toString()"></agm-marker>
+    </agm-map>
+  </div>
+</div>
