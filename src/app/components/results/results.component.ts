@@ -4,7 +4,7 @@ import {MainServiceService} from '../../Services/main-service.service';
 import { SearchDetails } from '../../models/SearchDetails';
 import { Observable } from 'rxjs';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
-import { Geolocation } from '../../models/geolocation';
+import { Geolocation } from '../../models/Geolocation';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
