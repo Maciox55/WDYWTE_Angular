@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {Result} from '../../models/Result';
 import {MainServiceService} from '../../Services/main-service.service';
-import { SearchDetails } from 'src/app/models/SearchDetails';
+import { SearchDetails } from '../../models/SearchDetails';
 import { Observable } from 'rxjs';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
-import { Geolocation } from 'src/app/models/geolocation';
+import { Geolocation } from '../../models/geolocation';
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
