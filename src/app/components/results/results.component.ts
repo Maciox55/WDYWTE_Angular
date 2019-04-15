@@ -5,6 +5,8 @@ import { SearchDetails } from '../../models/SearchDetails';
 import { Observable } from 'rxjs';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 import { Geolocation } from '../../models/geolocation';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
