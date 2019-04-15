@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { Range, PlaceType } from '../components/home/home.component';
 import {Result} from '../models/Result';
 import { SearchDetails } from '../models/SearchDetails';
-import { Geoloaction } from '../models/geolocation';
+import { Geolocation } from '../models/Geolocation';
 import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,9 @@ export class MainServiceService {
 
   searchQuery: SearchDetails;
   results: Result[];
-  geolocation: Geoloaction;
+  geolocation: Geolocation;
   constructor(private http: HttpClient) {
-    this.geolocation = new Geoloaction();
+    this.geolocation = new Geolocation();
   }
   public getResults(): any {
     const resultsObservable = new Observable(observer => {

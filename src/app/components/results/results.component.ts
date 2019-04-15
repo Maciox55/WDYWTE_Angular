@@ -4,7 +4,7 @@ import {MainServiceService} from '../../Services/main-service.service';
 import { SearchDetails } from 'src/app/models/SearchDetails';
 import { Observable } from 'rxjs';
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
-import { Geoloaction } from 'src/app/models/geolocation';
+import { Geolocation } from 'src/app/models/geolocation';
 @Component({
   selector: 'app-results',
   templateUrl: './results.component.html',
@@ -15,7 +15,7 @@ export class ResultsComponent implements OnInit {
     public results: Result[];
     queryDetails: SearchDetails;
     ress: Result[];
-    location: Geoloaction;
+    location: Geolocation;
     constructor(private mainService: MainServiceService) {
     }
     styles: any[] = [
@@ -220,7 +220,7 @@ export class ResultsComponent implements OnInit {
     {}
 ];
     ngOnInit() {
-        this.location = new Geoloaction();
+        this.location = new Geolocation();
         console.log(this.location);
         this.location.lat = 41.0;
         this.location.lon = -72.0;
