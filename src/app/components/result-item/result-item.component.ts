@@ -7,11 +7,12 @@ import { Result } from 'src/app/models/Result';
   styleUrls: ['./result-item.component.css']
 })
 export class ResultItemComponent implements OnInit {
+// tslint:disable-next-line: whitespace
   @Input() result:Result;
   constructor() { }
 
   ngOnInit() {
-    
+
   }
 
 }

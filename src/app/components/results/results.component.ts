@@ -12,139 +12,133 @@ import { Geoloaction } from 'src/app/models/geolocation';
 })
 
 export class ResultsComponent implements OnInit {
-    results:Result[];
-    queryDetails:SearchDetails;
-    ress:Result[];
-    location:Geoloaction;
-    constructor(private mainService:MainServiceService) { 
-        
+    public results: Result[];
+    queryDetails: SearchDetails;
+    ress: Result[];
+    location: Geoloaction;
+    constructor(private mainService: MainServiceService) {
     }
-    
-
-  
     styles: any[] = [
     {
-        "elementType": "labels",
-        "stylers": [
+        'elementType': 'labels',
+        'stylers': [
             {
-                "visibility": "off"
+                'visibility': 'off'
             },
             {
-                "color": "#f49f53"
+                'color': '#f49f53'
             }
         ]
     },
     {
-        "featureType": "landscape",
-        "stylers": [
+        'featureType': 'landscape',
+        'stylers': [
             {
-                "color": "#f9ddc5"
+                'color': '#f9ddc5'
             },
             {
-                "lightness": -7
+                'lightness': -7
             }
         ]
     },
     {
-        "featureType": "road",
-        "stylers": [
+        'featureType': 'road',
+        'stylers': [
             {
-                "color": "#813033"
+                'color': '#813033'
             },
             {
-                "lightness": 43
+                'lightness': 43
             }
         ]
     },
     {
-        "featureType": "poi.business",
-        "stylers": [
+        'featureType': 'poi.business',
+        'stylers': [
             {
-                "color": "#645c20"
+                'color': '#645c20'
             },
             {
-                "lightness": 38
+                'lightness': 38
             }
         ]
     },
     {
-        "featureType": "water",
-        "stylers": [
+        'featureType': 'water',
+        'stylers': [
             {
-                "color": "#1994bf"
+                'color': '#1994bf'
             },
             {
-                "saturation": -69
+                'saturation': -69
             },
             {
-                "gamma": 0.99
+                'gamma': 0.99
             },
             {
-                "lightness": 43
+                'lightness': 43
             }
         ]
     },
     {
-        "featureType": "road.local",
-        "elementType": "geometry.fill",
-        "stylers": [
+        'featureType': 'road.local',
+        'elementType': 'geometry.fill',
+        'stylers': [
             {
-                "color": "#f19f53"
+                'color': '#f19f53'
             },
             {
-                "weight": 1.3
+                'weight': 1.3
             },
             {
-                "visibility": "on"
+                'visibility': 'on'
             },
             {
-                "lightness": 16
+                'lightness': 16
             }
         ]
     },
     {
-        "featureType": "poi.business"
+        'featureType': 'poi.business'
     },
     {
-        "featureType": "poi.park",
-        "stylers": [
+        'featureType': 'poi.park',
+        'stylers': [
             {
-                "color": "#645c20"
+                'color': '#645c20'
             },
             {
-                "lightness": 39
+                'lightness': 39
             }
         ]
     },
     {
-        "featureType": "poi.school",
-        "stylers": [
+        'featureType': 'poi.school',
+        'stylers': [
             {
-                "color": "#a95521"
+                'color': '#a95521'
             },
             {
-                "lightness": 35
-            }
-        ]
-    },
-    {},
-    {
-        "featureType": "poi.medical",
-        "elementType": "geometry.fill",
-        "stylers": [
-            {
-                "color": "#813033"
-            },
-            {
-                "lightness": 38
-            },
-            {
-                "visibility": "off"
+                'lightness': 35
             }
         ]
     },
     {},
-    {},
+    {
+        'featureType': 'poi.medical',
+        'elementType': 'geometry.fill',
+        'stylers': [
+            {
+                'color': '#813033'
+            },
+            {
+                'lightness': 38
+            },
+            {
+                'visibility': 'off'
+            }
+        ]
+    },
     {},
     {},
     {},
@@ -154,90 +148,92 @@ export class ResultsComponent implements OnInit {
     {},
     {},
     {},
+    {},
+    {},
     {
-        "elementType": "labels"
+        'elementType': 'labels'
     },
     {
-        "featureType": "poi.sports_complex",
-        "stylers": [
+        'featureType': 'poi.sports_complex',
+        'stylers': [
             {
-                "color": "#9e5916"
+                'color': '#9e5916'
             },
             {
-                "lightness": 32
+                'lightness': 32
             }
         ]
     },
     {},
     {
-        "featureType": "poi.government",
-        "stylers": [
+        'featureType': 'poi.government',
+        'stylers': [
             {
-                "color": "#9e5916"
+                'color': '#9e5916'
             },
             {
-                "lightness": 46
+                'lightness': 46
             }
         ]
     },
     {
-        "featureType": "transit.station",
-        "stylers": [
+        'featureType': 'transit.station',
+        'stylers': [
             {
-                "visibility": "off"
+                'visibility': 'off'
             }
         ]
     },
     {
-        "featureType": "transit.line",
-        "stylers": [
+        'featureType': 'transit.line',
+        'stylers': [
             {
-                "color": "#813033"
+                'color': '#813033'
             },
             {
-                "lightness": 22
+                'lightness': 22
             }
         ]
     },
     {
-        "featureType": "transit",
-        "stylers": [
+        'featureType': 'transit',
+        'stylers': [
             {
-                "lightness": 38
+                'lightness': 38
             }
         ]
     },
     {
-        "featureType": "road.local",
-        "elementType": "geometry.stroke",
-        "stylers": [
+        'featureType': 'road.local',
+        'elementType': 'geometry.stroke',
+        'stylers': [
             {
-                "color": "#f19f53"
+                'color': '#f19f53'
             },
             {
-                "lightness": -10
+                'lightness': -10
             }
         ]
     },
     {},
     {},
     {}
-]
+];
     ngOnInit() {
         this.location = new Geoloaction();
         console.log(this.location);
-        this.location.lat=41.0;
-        this.location.lon=-72.0;
+        this.location.lat = 41.0;
+        this.location.lon = -72.0;
         console.log(this.location);
 
     this.queryDetails = this.mainService.searchQuery;
    const obsrvr = this.mainService.getResults();
-    obsrvr.subscribe((res:any)=>{
-        this.results = res;
-        //this.results = res.results as Result[];
+    obsrvr.subscribe((res: any) => {
+        this.results = res.results;
+        // this.results = res.results as Result[];
         this.location = res.geo;
     });
-    console.log(this.queryDetails.zip + " FROM RESULTS");
+    console.log(this.queryDetails.zip + ' FROM RESULTS');
   }
 
 }
