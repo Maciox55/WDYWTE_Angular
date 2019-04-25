@@ -19,7 +19,6 @@ export interface Range {
 })
 export class HomeComponent implements OnInit {
   model = new SearchDetails();
-  @Input() value: number;
   types: PlaceType[] = [
     {value: 'restaurant', viewValue: 'Restaurant'},
     {value: 'bar', viewValue: 'Bar'},
@@ -33,6 +32,8 @@ export class HomeComponent implements OnInit {
 
 
   ];
+  @Input() value: number;
+ 
   constructor(private router: Router, private spinner: NgxSpinnerService, private mainService: MainServiceService) { }
   ngOnInit() {
 
@@ -44,7 +45,7 @@ export class HomeComponent implements OnInit {
       this.spinner.hide();
       console.log(this.model);
       this.mainService.setSearchQuery(this.model);
-      this.mainService.requestPlaces(this.model);
+     // this.mainService.requestPlaces(this.model);
 
 
       this.router.navigate(['results']);

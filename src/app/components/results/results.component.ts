@@ -18,7 +18,8 @@ export class ResultsComponent implements OnInit {
     queryDetails: SearchDetails;
     ress: Result[];
     location: Geolocation;
-    constructor(private mainService: MainServiceService) {
+    constructor(private mainService: MainServiceService, private spinner: NgxSpinnerService) {
+
     }
     styles: any[] = [
     {
@@ -222,20 +223,13 @@ export class ResultsComponent implements OnInit {
     {}
 ];
     ngOnInit() {
-        this.location = new Geolocation();
-        console.log(this.location);
-        this.location.lat = 41.0;
-        this.location.lon = -72.0;
-        console.log(this.location);
+        this.results = [];
+        this.spinner.show();
+        this.queryDetails = this.mainService.searchQuery;
 
-    this.queryDetails = this.mainService.searchQuery;
-   const obsrvr = this.mainService.getResults();
-    obsrvr.subscribe((res: any) => {
-        this.results = res.results;
-        // this.results = res.results as Result[];
-        this.location = res.geo;
-    });
-    console.log(this.queryDetails.zip + ' FROM RESULTS');
+        this.results = this.mainService.requestPlaces(this.queryDetails);
+        this.location = new Geolocation();
+         console.log(this.queryDetails.zip + ' FROM RESULTS');
   }
 
 }

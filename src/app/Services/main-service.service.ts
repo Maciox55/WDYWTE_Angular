@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 export class MainServiceService {
 
   searchQuery: SearchDetails;
-  results: Result[];
+  results: Observable<Result[]>
   geolocation: Geolocation;
   constructor(private http: HttpClient) {
     this.geolocation = new Geolocation();
@@ -36,21 +36,23 @@ export class MainServiceService {
     this.results = r;
   }
 
-  public requestPlaces(z: SearchDetails) {
-      // this.http.post<Result[]>('/api/searchAround/',{params: this.searchQuery})
-      // .subscribe((res:any)=>{
-      //   console.log(res);
-      //   //this.setresults(res.results);
-      //   this.geolocation = res.data.geo as Geoloaction;
-      //   this.results = res.data.results as Result[];
-      //   console.log(this.results);
-      // }
-      // ,error => console.log(error));
-      this.http.post<any>('/api/searchAround/', {params: this.searchQuery})
-      .pipe(map(res => {
-        this.results = res.data.results;
-        console.log(res.data.results);
-      }));
-  }
+  public requestPlaces(z: SearchDetails){
+      this.http.post('/api/searchAround/', {params: this.searchQuery})
+      .subscribe((res)=>{
+          console.log(res);
+          return res;
+          
+      });
+  };
 
 }
+
+
+
+// .subscribe((res: any) => {
+//   console.log(res);
+  // this.setresults(res.results);
+  // this.geolocation = res.data.geo as Geolocation;
+  // this.results = res.data.results as Result[];
+//   return of(res.data);
+// }

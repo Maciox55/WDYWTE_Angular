@@ -11,7 +11,7 @@
     <div fxLayoutAlign="center" id="title">
       <h1 id="titleText">Not Sure What To Eat Today?</h1>
     </div>
-    <form fxLayout='row wrap' fxLayoutAlign="start"  (ngSubmit)="onSubmit()" fxLayoutGap="20px" id="inputFields" #f="ngForm">
+    <form fxLayout='row wrap' fxLayoutAlign="start"  fxLayoutGap="20px" id="inputFields" #f="ngForm">
       <mat-form-field fxFlex="80" id="zipCode" >
         <input matInput placeholder="Zip Code or Address" name="zip" [(ngModel)]="model.zip" >
       </mat-form-field>
