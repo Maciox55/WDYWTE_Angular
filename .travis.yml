@@ -2,27 +2,29 @@ language: node_js
 node_js:
   - "11.7.0"
 
-  branches:
-    only:
-      - master
-  addons:
-    chrome: stable
+branches:
+  only:
+    - master
+addons:
+  chrome: stable
 
-  before_script:
-    - yarn global add @angular/cli
+before_script:
+  - yarn global add @angular/cli
 
-  cache:
-    yarn: true
-    directories:
-      - node_modules
+cache:
+  yarn: true
+  directories:
+   - node_modules
 
-  script:
-    - ng build --prod
+script:
+  - ng lint
+  - ng test --watch=false
+  - ng build --prod
 
-   deploy:
-    provider: pages
-    skip-cleanup: true
-    github-token: $GITHUB_TOKEN
-    keep-history: true
-    local-dir: ./dist/
-    on:
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  local-dir: ./dist/
+  on:

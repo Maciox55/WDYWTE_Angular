@@ -1,8 +1,15 @@
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="pacman">
+ <p style="font-size: 20px; color: white; ">Loading...</p>
+</ngx-spinner>
 <div fxLayout="row"  fxLayoutAlignment="start" id="results">
   <div fxFlex="0 0 350px" fxFill id="left">
-    <h1 *ngIf="queryDetails.zip != null">5 choices near {{queryDetails.zip}}</h1>
-    <div fxLayout="column" fxFill fxLayoutAlignment="start start" *ngFor="let res of results">
-      <app-result-item fxFlex="20" id="item"  [result]="this.res">
+    <h1 *ngIf="queryDetails.zip">5 choices near {{queryDetails.zip}}</h1>
+    <div fxLayout="column" fxFill fxLayoutAlignment="start start" *ngFor="let res of results | async">
+      <app-result-item fxFlex="20" id="item"  [result]="res">
       </app-result-item>
     </div>
 
